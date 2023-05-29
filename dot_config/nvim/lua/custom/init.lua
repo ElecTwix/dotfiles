@@ -5,3 +5,4 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+--

@@ -7,8 +7,7 @@
     "gtk-layer-shell": true,
     "height": 20,
     "modules-left": ["custom/launch_wofi","custom/power_btn","custom/lock_screen","wlr/workspaces","wlr/taskbar"],
-    "modules-right": ["tray","cpu","memory","disk","temperature","pulseaudio","pulseaudio#microphone","custom/weather","clock","custom/light_dark"],
-    "include": ["~/.config/HyprV/waybar/conf/hyprv-util.jsonc"],
+    "modules-right": ["tray","cpu","memory","disk","pulseaudio","custom/weather","clock"],
 
     "custom/launch_wofi": {
         "format": "Electwix",
@@ -91,31 +90,6 @@
         "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
         "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
     },
-
-    "temperature": {
-        "thermal-zone": 1,
-        "format": "",
-        "format-alt-click": "click-right",
-        "format-alt": " {temperatureF}°F",
-        "critical-threshold": 70,
-        "format-critical": " {temperatureC}°C",
-        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
-    },
-
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{icon}",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt-click": "click-right",
-        "format-alt": "{icon} {capacity}%",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-    },
-
     "pulseaudio": {
         "format": "{icon}",
         "format-muted": "",
