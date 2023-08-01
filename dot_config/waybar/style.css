@@ -5,14 +5,13 @@
 }
 
 window#waybar {
-    background: #1e1e2e;
+    border-radius: 15px;
+    background: transparent;
     color: #cdd6f4;
-    opacity: 0.8;
 }
 
 tooltip {
     background: #1e1e2e;
-    opacity: 0.8;
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
@@ -52,13 +51,10 @@ tooltip label{
 }
 
 #custom-launch_wofi,
-#custom-lock_screen,
-#custom-light_dark,
-#custom-power_btn,
-#custom-power_profile,
 #custom-weather,
 #custom-myhyprv,
 #window,
+#cava,
 #cpu,
 #disk,
 #custom-updates,
@@ -72,62 +68,18 @@ tooltip label{
 #workspaces,
 #backlight {
     background: #1e1e2e;
-    opacity: 0.8;
     padding: 0px 8px;
-    margin: 0px 3px;
-    border: 0px;
-}
-
-#custom-launch_wofi {
-    border-radius: 10px 0px 0px 10px;
-}
-
-#custom-light_dark {
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
-}
-
-#temperature.critical {
-    color: #e92d4d;
+    margin: 3px;
+    border-radius: 15px;
 }
 
 
-#workspaces {
-    padding-right: 0px;
-    padding-left: 5px;
-}
-
-#custom-power_profile, #battery, #temperature{
-    color: #a6e3a1;
-    border-left: 0px;
-    border-right: 0px;
-}
-
-#window {
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-#custom-launch_wofi {
-    color: #89b4fa;
-    margin-left: 10px;
-    border-right: 0px;
-}
-
-#pulseaudio {
-    color: #89b4fa;
-    border-left: 0px;
-    border-right: 0px;
-}
-
-#pulseaudio.microphone {
-    color: #cba6f7;
-    border-left: 0px;
-    border-right: 0px;
-}
-
-#battery {
-    color: #a6e3a1;
-    border-left: 0px;
+#custom-lock_screen,
+#custom-light_dark,
+#custom-power_btn,
+#custom-power_profile {
+    padding: 0px 8px;
+    margin: 3px;
+    border-radius: 15px;
+    opacity: 0.9;
 }
