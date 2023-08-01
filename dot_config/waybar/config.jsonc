@@ -20,7 +20,6 @@
     "memory",
     "disk",
     "pulseaudio",
-    "custom/weather",
     "clock"
   ],
   "custom/launch_wofi": {
@@ -137,14 +136,6 @@
     "icon-size": 16,
     "spacing": 10
   },
-  "custom/weather": {
-    //shows the current weather and forecast
-    "tooltip": true,
-    "format": "{}",
-    "interval": 30,
-    "exec": "~/.config/HyprV/waybar/scripts/waybar-wttr.py",
-    "return-type": "json"
-  },
   "clock": {
     "interval": 5,
     "format": "{:%H:%M}",
@@ -152,10 +143,9 @@
     "tooltip-format": "{:%d/%m/%Y}"
   },
   "cava": {
-    "cava_config": "/home/electwix/.config/cava/config",
-    "framerate": 60,
+    "framerate": 30,
     "autosens": 0,
-    "sensitivity": 10,
+    "sensitivity": 70,
     "bars": 18,
     "method": "pipewire",
     "source": "auto",
@@ -163,7 +153,10 @@
     "reverse": false,
     "bar_delimiter": 0,
     "monstercat": false,
-    "waves": true,
+    "waves": false,
+    "noise_reduction": 0.3,
+    "input_delay": 2,
+    "sleep_timer": 15,
     "format-icons": [
       "▁",
       "▂",
@@ -173,6 +166,9 @@
       "▆",
       "▇",
       "█"
-    ]
+    ],
+    "actions": {
+      "on-click-right": "mode"
+    }
   }
 }

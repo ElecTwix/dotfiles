@@ -54,14 +54,8 @@ tooltip label{
 #custom-weather,
 #custom-myhyprv,
 #window,
-#cava,
-#cpu,
-#disk,
-#custom-updates,
-#memory,
 #clock,
 #battery,
-#pulseaudio,
 #network,
 #tray,
 #temperature,
@@ -73,13 +67,25 @@ tooltip label{
     border-radius: 15px;
 }
 
-
+#cava
+#pulseaudio,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
 #custom-lock_screen,
 #custom-light_dark,
 #custom-power_btn,
 #custom-power_profile {
     padding: 0px 8px;
     margin: 3px;
+    border-radius: 15px;
+    opacity: 0.9;
+}
+
+#cava {
+    padding: 8px 8px;
+    margin: 6px;
     border-radius: 15px;
     opacity: 0.9;
 }
