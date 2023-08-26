@@ -5,7 +5,7 @@
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-  "height": 20,
+  "height": 50,
   "modules-left": [
     "custom/launch_wofi",
     "custom/power_btn",
@@ -145,18 +145,18 @@
   "cava": {
     "framerate": 30,
     "autosens": 0,
-    "sensitivity": 70,
-    "bars": 18,
+    "sensitivity": 30,
+    "bars": 24,
     "method": "pipewire",
     "source": "auto",
-    "stereo": true,
     "reverse": false,
     "bar_delimiter": 0,
     "monstercat": false,
     "waves": false,
-    "noise_reduction": 0.3,
+    "noise_reduction": 0.5,
     "input_delay": 2,
     "sleep_timer": 15,
+    "icon": "audio-volume-high",
     "format-icons": [
       "▁",
       "▂",
@@ -166,9 +166,6 @@
       "▆",
       "▇",
       "█"
-    ],
-    "actions": {
-      "on-click-right": "mode"
-    }
+    ]
   }
 }
