@@ -10,9 +10,11 @@
     "custom/launch_wofi",
     "custom/power_btn",
     "custom/lock_screen",
-    "wlr/workspaces",
+    "hyprland/workspaces",
+    "hyprland/submap",
     "wlr/taskbar"
   ],
+ "modules-center": ["hyprland/window"],
   "modules-right": [
     "cava",
     "tray",
@@ -37,23 +39,10 @@
     "on-click": "sh -c '(sleep 0.5s; swaylock)' & disown",
     "tooltip": false
   },
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "disable-scroll": false,
-    "all-outputs": true,
     "on-click": "activate",
     "format": "{name}",
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-      "10": []
-    },
     "sort-by-number": true
   },
   "wlr/taskbar": {
