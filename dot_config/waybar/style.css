@@ -1,5 +1,5 @@
 * {
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "JetBrainsMono";
     font-weight: bold;
     font-size: 16px;
 }
@@ -83,6 +83,8 @@ tooltip label{
 }
 
 #cava {
+    font-family: "JetBrainsMono";
+    font-weight: 200;
     padding: 8px 8px;
     margin: 6px;
     border-radius: 15px;
