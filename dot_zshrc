@@ -14,3 +14,19 @@ eval "$(starship init zsh)"
 autoload -Uz compinit
 compinit
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+alias theme="kitty +kitten themes --reload-in=all" # then add theme name
+alias icat="kitty +kitten icat" # then add image name
+alias connect="kitty +kitten ssh"
+alias lint="golangci-lint run"
+
+
+alias reporefresh=systemctl start reflector.service
+alias reporefreshStatus=systemctl status reflector.service
+
+alias ssh="kitty +kitten ssh"
+
+
+export ANDROID_HOME='/opt/android-sdk'

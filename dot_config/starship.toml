@@ -210,3 +210,9 @@ disabled = false
 time_format = '%R' # Hour:Minute Format
 style = 'fg:text_three bg:bar_three'
 format = '[   $time ]($style)'
+
+[cmd_duration]
+show_notifications = true
+min_time = 2_000
+min_time_to_notify = 45_000
+format = 'underwent [$duration](bold yellow)'
