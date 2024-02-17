@@ -43,3 +43,6 @@ esac
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 source /usr/share/nvm/init-nvm.sh
+
+# Turso
+export PATH="/home/electwix/.turso:$PATH"
