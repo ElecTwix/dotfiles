@@ -14,9 +14,12 @@
     "hyprland/submap",
     "wlr/taskbar"
   ],
- "modules-center": ["hyprland/window"],
+  "modules-center": [
+    "hyprland/window"
+  ],
   "modules-right": [
-    "cava",
+    "battery",
+    "backlight",
     "tray",
     "cpu",
     "memory",
@@ -131,30 +134,8 @@
     "tooltip": true,
     "tooltip-format": "{:%d/%m/%Y}"
   },
-  "cava": {
-    "framerate": 30,
-    "autosens": 0,
-    "sensitivity": 30,
-    "bars": 24,
-    "method": "pipewire",
-    "source": "auto",
-    "reverse": false,
-    "bar_delimiter": 0,
-    "monstercat": false,
-    "waves": false,
-    "noise_reduction": 0.5,
-    "input_delay": 2,
-    "sleep_timer": 15,
-    "icon": "audio-volume-high",
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇",
-      "█"
-    ]
+  "battery": {},
+  "backlight": {
+    "format": " {percent}%"
   }
 }
