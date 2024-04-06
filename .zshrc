@@ -29,7 +29,7 @@ alias reporefreshStatus=systemctl status reflector.service
 alias ssh="kitty +kitten ssh"
 
 
-export ANDROID_HOME='/opt/android-sdk'
+export ANDROID_HOME='/home/electwix/Android/Sdk'
 
 # pnpm
 export PNPM_HOME="/home/electwix/.local/share/pnpm"
