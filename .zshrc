@@ -46,4 +46,8 @@ eval "$(zoxide init zsh)"
 # Turso
 export PATH="/home/electwix/.turso:$PATH"
 
+# esp-idf
+export IDF_PATH=/opt/esp-idf
+alias idf-init=". /opt/esp-idf/export.sh"
+
 export LITFLAGS="-j 8"
