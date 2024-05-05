@@ -48,3 +48,4 @@ eval "$(zoxide init zsh)"
 
 # Turso
 export PATH="/home/electwix/.turso:$PATH"
+export PATH="$HOME/esp/xtensa-esp32-elf/bin:$PATH"
