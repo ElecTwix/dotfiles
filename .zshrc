@@ -51,3 +51,5 @@ export IDF_PATH=/opt/esp-idf
 alias idf-init=". /opt/esp-idf/export.sh"
 
 export LITFLAGS="-j 8"
+
+export PATH="$HOME/.cargo/bin:$PATH"
