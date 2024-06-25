@@ -46,6 +46,10 @@ source /usr/share/nvm/init-nvm.sh
 
 eval "$(zoxide init zsh)"
 
+alias idf-init="source /home/electwix/dev/C/esp-idf/export.sh"
+
 # Turso
 export PATH="/home/electwix/.turso:$PATH"
 export PATH="$HOME/esp/xtensa-esp32-elf/bin:$PATH"
+
+export VITE_URL="keepitdev.com"
