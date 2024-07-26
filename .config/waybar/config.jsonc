@@ -18,7 +18,7 @@
     "hyprland/window"
   ],
   "modules-right": [
-    "battery",
+    "upower",
     "backlight",
     "tray",
     "cpu",
@@ -30,11 +30,6 @@
   "custom/launch_wofi": {
     "format": "Electwix",
     "on-click": "pkill wofi || wofi -n -c ~/.config/HyprV/wofi/config-bmenu",
-    "tooltip": false
-  },
-  "custom/power_btn": {
-    "format": "",
-    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
     "tooltip": false
   },
   "custom/lock_screen": {
@@ -134,7 +129,6 @@
     "tooltip": true,
     "tooltip-format": "{:%d/%m/%Y}"
   },
-  "battery": {},
   "backlight": {
     "format": " {percent}%"
   }
