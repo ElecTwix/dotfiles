@@ -1,6 +1,3 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
-
 vim.filetype.add({
   extension = {
     c3 = "c3",

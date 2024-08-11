@@ -60,3 +60,6 @@ zinit light starship/starship
 
 zinit ice
 zinit light MichaelAquilina/zsh-auto-notify
+
+
+eval "$(direnv hook zsh)"
