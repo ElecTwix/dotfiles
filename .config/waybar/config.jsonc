@@ -1,157 +1,179 @@
 {
-        "layer": "top",
-        "position": "top",
-        "mod": "overlay",
-        "exclusive": true,
-        "passthrough": false,
-        "height": 50,
-        "spacing": 5,
-        "modules-left": [
-                "custom/launch_wofi",
-                "custom/power_btn",
-                "custom/lock_screen",
-                "hyprland/workspaces",
-                "hyprland/submap",
-                "wlr/taskbar"
-        ],
-        "modules-center": [
-                "hyprland/window"
-        ],
-        "modules-right": [
-                "upower",
-                "backlight",
-                "tray",
-                "cpu",
-                "memory",
-                "disk",
-                "pulseaudio",
-                "bluetooth",
-                "clock"
-        ],
-        "custom/launch_wofi": {
-                "format": "Electwix",
-                "on-click": "pkill wofi || wofi -n -c ~/.config/HyprV/wofi/config-bmenu",
-                "tooltip": false
+    "layer": "top",
+    "position": "top",
+    "mod": "overlay",
+    "exclusive": true,
+    "passthrough": false,
+    "height": 50,
+    "spacing": 5,
+    "modules-left": [
+        "custom/launch_wofi",
+        "custom/power_btn",
+        "custom/lock_screen",
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "wlr/taskbar"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "upower",
+        "backlight",
+        "tray",
+        "cpu",
+        "memory",
+        "disk",
+        "pulseaudio",
+        "bluetooth",
+        "clock"
+    ],
+    "custom/launch_wofi": {
+        "format": "Electwix",
+        "on-click": "pkill wofi || wofi -n -c ~/.config/HyprV/wofi/config-bmenu",
+        "tooltip": false
+    },
+    "custom/lock_screen": {
+        "format": "",
+        "on-click": "sh -c '(sleep 0.5s; swaylock)' & disown",
+        "tooltip": false
+    },
+    "hyprland/window": {
+        "max-length": 40
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "on-click": "activate",
+        "format": "{name}",
+        "sort-by-number": true
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 16,
+        "all-outputs": true,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "wofi",
+            "kitty"
+        ]
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "",
+        "max-length": 10,
+        "format-alt-click": "click-right",
+        "format-alt": " {usage}%",
+        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+    "memory": {
+        "interval": 30,
+        "format": "",
+        "format-alt-click": "click-right",
+        "format-alt": " {}%",
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "Memory - {used:0.1f}GB used",
+        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+    "disk": {
+        "interval": 30,
+        "format": "󰋊",
+        "path": "/",
+        "format-alt-click": "click-right",
+        "format-alt": "󰋊 {percentage_used}%",
+        "tooltip": true,
+        "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
+        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --inc",
+        "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --dec",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
-        "custom/lock_screen": {
-                "format": "",
-                "on-click": "sh -c '(sleep 0.5s; swaylock)' & disown",
-                "tooltip": false
+        "tooltip": true,
+        "tooltip-format": "{icon} at {volume}%"
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle-mic",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --mic-inc",
+        "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --mic-dec",
+        "scroll-step": 5,
+        "tooltip": true,
+        "tooltip-format": " at {volume}%"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "clock": {
+        "interval": 5,
+        "format": "{:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "{:%d/%m/%Y}\n\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
         },
-        "hyprland/workspaces": {
-                "disable-scroll": false,
-                "on-click": "activate",
-                "format": "{name}",
-                "sort-by-number": true
-        },
-        "wlr/taskbar": {
-                "format": "{icon}",
-                "icon-size": 16,
-                "all-outputs": true,
-                "tooltip-format": "{title}",
-                "on-click": "activate",
-                "on-click-middle": "close",
-                "ignore-list": [
-                        "wofi",
-                        "kitty"
-                ]
-        },
-        "cpu": {
-                "interval": 10,
-                "format": "",
-                "max-length": 10,
-                "format-alt-click": "click-right",
-                "format-alt": " {usage}%",
-                "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
-        },
-        "memory": {
-                "interval": 30,
-                "format": "",
-                "format-alt-click": "click-right",
-                "format-alt": " {}%",
-                "max-length": 10,
-                "tooltip": true,
-                "tooltip-format": "Memory - {used:0.1f}GB used",
-                "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
-        },
-        "disk": {
-                "interval": 30,
-                "format": "󰋊",
-                "path": "/",
-                "format-alt-click": "click-right",
-                "format-alt": "󰋊 {percentage_used}%",
-                "tooltip": true,
-                "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
-                "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
-        },
-        "pulseaudio": {
-                "format": "{icon}",
-                "format-muted": "",
-                "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle",
-                "on-click-right": "pavucontrol",
-                "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --inc",
-                "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --dec",
-                "scroll-step": 5,
-                "format-icons": {
-                        "headphone": "",
-                        "hands-free": "",
-                        "headset": "",
-                        "phone": "",
-                        "portable": "",
-                        "car": "",
-                        "default": [
-                                "",
-                                "",
-                                ""
-                        ]
-                },
-                "tooltip": true,
-                "tooltip-format": "{icon} at {volume}%"
-        },
-        "pulseaudio#microphone": {
-                "format": "{format_source}",
-                "format-source": "",
-                "format-source-muted": "",
-                "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle-mic",
-                "on-click-right": "pavucontrol",
-                "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --mic-inc",
-                "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --mic-dec",
-                "scroll-step": 5,
-                "tooltip": true,
-                "tooltip-format": " at {volume}%"
-        },
-        "tray": {
-                "icon-size": 16,
-                "spacing": 10
-        },
-        "clock": {
-                "interval": 5,
-                "format": "{:%H:%M}",
-                "tooltip": true,
-                "tooltip-format": "{:%d/%m/%Y}"
-        },
-        "backlight": {
-                "format": " {percent}%"
-        },
-        "upower": {
-                "icon-size": 20,
-                "hide-if-empty": false,
-                "tooltip": true,
-                "format": "{percentage} {time}",
-                "tooltip-spacing": 4
-        },
-        "bluetooth": {
-                "format": "",
-                "format-disabled": "",
-                "format-connected": " {num_connections}",
-                "format-connected-battery": " {device_alias} // 󰥉 {device_battery_percentage}%",
-                "format-device-preference": [
-                        "device2",
-                        "device1"
-                ], // preference list deciding the displayed device
-                "tooltip-format": "{controller_alias}\n{num_connections} connected",
-                "tooltip-format-connected": "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}",
-                "tooltip-format-enumerate-connected": "{device_alias}",
-                "tooltip-format-enumerate-connected-battery": "{device_alias} // {device_battery_percentage}%"
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
         }
+    },
+    "backlight": {
+        "format": " {percent}%"
+    },
+    "upower": {
+        "icon-size": 20,
+        "hide-if-empty": false,
+        "tooltip": true,
+        "format": "{percentage} {time}",
+        "tooltip-spacing": 4
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "format-connected": " {num_connections}",
+        "format-device-preference": [
+            "device2",
+            "device1"
+        ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": " {device_alias} - 󰥉 {device_battery_percentage}%"
+    }
 }
