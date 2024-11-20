@@ -6,5 +6,6 @@ local map = vim.keymap.set
 -- Zoom in/out with Ctrl + +/- and Ctrl + scroll
 map("n", "<C-=>", ':<C-u>exe "normal! zi"<CR>', { silent = true })
 map("n", "<C-->", ':<C-u>exe "normal! zo"<CR>', { silent = true })
+map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 
 -- remap caps lock to escape

@@ -7,6 +7,9 @@ alias icat="kitty +kitten icat" # then add image name
 alias ssh="kitty +kitten ssh"
 alias lint="golangci-lint run"
 
+eval "$(zoxide init zsh)"
+#alias z="zoxide"
+
 
 export ANDROID_HOME='/home/electwix/Android/Sdk'
 
@@ -29,7 +32,7 @@ alias idf-init="source /home/electwix/dev/C/esp-idf/export.sh"
 export PATH="/home/electwix/.turso:$PATH"
 export PATH="$HOME/esp/xtensa-esp32-elf/bin:$PATH"
 
-export VITE_URL="keepitdev.com"
+export PUBLIC_URL="keepitdev.com"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
