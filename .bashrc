@@ -1,6 +1,5 @@
 # ~/.bashrc
 #
-export PATH=$PATH:$(go env GOPATH)/bin
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
