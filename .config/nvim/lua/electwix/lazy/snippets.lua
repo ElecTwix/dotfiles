@@ -33,28 +33,7 @@ return {
 	-- luasnip integration
 	{
 		"saghen/blink.cmp",
-		build = "cargo +nightly build --release",
-		keys = {
-			-- chartoggle
-			{
-				"<C-;>",
-				function()
-					require("blink.chartoggle").toggle_char_eol(";")
-				end,
-				mode = { "n", "v" },
-				desc = "Toggle ; at eol",
-			},
-			{
-				",",
-				function()
-					require("blink.chartoggle").toggle_char_eol(",")
-				end,
-				mode = { "n", "v" },
-				desc = "Toggle , at eol",
-			},
-
-			-- tree
-		},
+		version = "*",
 		opts = {
 			keymap = {
 				preset = "enter",
@@ -74,6 +53,11 @@ return {
 				jump = function(direction)
 					require("luasnip").jump(direction)
 				end,
+			},
+			fuzzy = {
+				prebuilt_binaries = {
+					download = true,
+				},
 			},
 		},
 	},
