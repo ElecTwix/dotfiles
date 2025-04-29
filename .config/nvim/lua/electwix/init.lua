@@ -182,3 +182,14 @@ map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
 local KeyMap = require("electwix.keymaps")
 KeyMap()
+
+vim.api.nvim_create_autocmd("BufRead", {
+	callback = function(ev)
+		if vim.bo[ev.buf].buftype == "quickfix" then
+			vim.schedule(function()
+				vim.cmd([[cclose]])
+				vim.cmd([[Trouble qflist open]])
+			end)
+		end
+	end,
+})

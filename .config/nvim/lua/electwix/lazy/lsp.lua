@@ -94,6 +94,7 @@ return {
 				terraformls = {},
 				tinymist = {},
 				ts_ls = {},
+				jdtls = {},
 				yamlls = {
 					capabilities = {
 						textDocument = {
