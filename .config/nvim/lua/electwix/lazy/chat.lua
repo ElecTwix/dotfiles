@@ -3,15 +3,81 @@ return {
 		"CopilotC-Nvim/CopilotChat.nvim",
 		branch = "main",
 		cmd = "CopilotChat",
+		build = "make tiktoken",
 		opts = function()
 			local user = vim.env.USER or "User"
 			user = user:sub(1, 1):upper() .. user:sub(2)
 			return {
+				model = "gemini-2.5-flash-preview-04-17",
+				agent = "copilot",
+				chat_autocomplete = true,
 				auto_insert_mode = true,
+				references_display = "write",
 				question_header = "  " .. user .. " ",
 				answer_header = "  Copilot ",
 				window = {
 					width = 0.4,
+				},
+				providers = {
+					gemini = {
+						prepare_input = require("CopilotChat.config.providers").copilot.prepare_input,
+						prepare_output = require("CopilotChat.config.providers").copilot.prepare_output,
+
+						get_headers = function()
+							local api_key = assert(os.getenv("GEMINI_API_KEY"), "GEMINI_API_KEY env not set")
+							return {
+								Authorization = "Bearer " .. api_key,
+								["Content-Type"] = "application/json",
+							}
+						end,
+
+						get_models = function(headers)
+							local response, err = require("CopilotChat.utils").curl_get(
+								"https://generativelanguage.googleapis.com/v1beta/openai/models",
+								{
+									headers = headers,
+									json_response = true,
+								}
+							)
+
+							if err then
+								error(err)
+							end
+
+							return vim.tbl_map(function(model)
+								local id = model.id:gsub("^models/", "")
+								return {
+									id = id,
+									name = id,
+								}
+							end, response.body.data)
+						end,
+
+						embed = function(inputs, headers)
+							local response, err = require("CopilotChat.utils").curl_post(
+								"https://generativelanguage.googleapis.com/v1beta/openai/embeddings",
+								{
+									headers = headers,
+									json_request = true,
+									json_response = true,
+									body = {
+										input = inputs,
+										model = "text-embedding-004",
+									},
+								}
+							)
+
+							if err then
+								error(err)
+							end
+
+							return response.body.data
+						end,
+
+						get_url = function()
+							return "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+						end,
+					},
 				},
 				prompts = {
 					Explain = {
@@ -51,14 +117,6 @@ return {
 					return require("CopilotChat").toggle()
 				end,
 				desc = "Toggle (CopilotChat)",
-				mode = { "n", "v" },
-			},
-			{
-				"<leader>ax",
-				function()
-					return require("CopilotChat").reset()
-				end,
-				desc = "Clear (CopilotChat)",
 				mode = { "n", "v" },
 			},
 			{

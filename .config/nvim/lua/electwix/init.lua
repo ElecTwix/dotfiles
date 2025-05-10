@@ -29,6 +29,7 @@ require("bufferline").setup({})
 
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader><space>", builtin.find_files, { desc = "Telescope find files" })
+vim.keymap.set("n", "<shift><leader><space>", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
@@ -118,6 +119,8 @@ require("conform").setup({
 		lua = { "stylua" },
 		-- Conform will run multiple formatters sequentially
 		javascript = { "prettierd", "prettier", stop_after_first = true },
+		-- Add go formatters here
+		yaml = { "prettier" }, -- Add this line for YAML
 	},
 })
 
@@ -183,13 +186,6 @@ map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 local KeyMap = require("electwix.keymaps")
 KeyMap()
 
-vim.api.nvim_create_autocmd("BufRead", {
-	callback = function(ev)
-		if vim.bo[ev.buf].buftype == "quickfix" then
-			vim.schedule(function()
-				vim.cmd([[cclose]])
-				vim.cmd([[Trouble qflist open]])
-			end)
-		end
-	end,
-})
+vim.opt.signcolumn = "number"
+vim.opt.number = true
+vim.opt.relativenumber = true
