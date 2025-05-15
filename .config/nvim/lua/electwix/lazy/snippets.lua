@@ -1,7 +1,7 @@
 return {
 	{
 		"L3MON4D3/LuaSnip",
-		lazy = true,
+		version = "v2.*",
 		dependencies = {
 			{
 				"rafamadriz/friendly-snippets",
@@ -12,28 +12,16 @@ return {
 			},
 		},
 		build = "make install_jsregexp",
-		opts = {
-			snippets_path = { vim.fn.stdpath("config") .. "/snippets" }, -- can be overwritten with a LazySpec in extra/
-			history = true,
-			updateevents = "TextChanged,TextChangedI",
-			delete_check_events = "TextChanged",
-		},
-		config = function(_, opts)
-			-- load VSC style snippets
-			require("luasnip.loaders.from_vscode").lazy_load({ paths = opts.snippets_path })
-			-- selecting within a list of snippet options.
-			vim.keymap.set("i", "<c-h>", function()
-				if require("luasnip").choice_active() then
-					require("luasnip").change_choice(1)
-				end
-			end)
-		end,
 	},
 
 	-- luasnip integration
 	{
 		"saghen/blink.cmp",
 		version = "*",
+		dependencies = {
+			"Kaiser-Yang/blink-cmp-avante",
+			-- ... Other dependencies
+		},
 		opts = {
 			keymap = {
 				preset = "enter",
@@ -57,6 +45,19 @@ return {
 			fuzzy = {
 				prebuilt_binaries = {
 					download = true,
+				},
+			},
+			sources = {
+				-- Add 'avante' to the list
+				default = { "avante", "lsp", "path", "buffer" },
+				providers = {
+					avante = {
+						module = "blink-cmp-avante",
+						name = "Avante",
+						opts = {
+							-- options for blink-cmp-avante
+						},
+					},
 				},
 			},
 		},
