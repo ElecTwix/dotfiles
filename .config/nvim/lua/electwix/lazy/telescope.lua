@@ -3,6 +3,7 @@ return {
 	tag = "0.1.8",
 
 	opts = {
+
 		-- your configuration comes here
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
@@ -14,9 +15,10 @@ return {
 				hidden = true,
 			},
 		},
+		extensions = {
+			["ui-select"] = {},
+		},
 	},
 	-- or                              , branch = '0.1.x',
-	dependencies = { "nvim-lua/plenary.nvim" },
-
-	{ "nvim-telescope/telescope-ui-select.nvim" },
+	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim" },
 }

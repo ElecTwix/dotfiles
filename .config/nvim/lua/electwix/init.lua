@@ -107,8 +107,6 @@ map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
 -- clipboard
 vim.opt.clipboard = "unnamedplus"
 
-require("telescope").load_extension("ui-select")
-
 -- floating terminal
 map("n", "<leader>ft", function()
 	Snacks.terminal()
