@@ -6,7 +6,16 @@ return {
 			-- for example
 			provider = "gemini",
 			gemini = {
-				model = "gemini-2.5-flash-preview-04-17",
+				endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+				model = "gemini-2.5-pro-preview-05-06",
+				timeout = 30000,
+				temperature = 0,
+				max_tokens = 8192,
+			},
+			behaviour = {
+				--- ... existing behaviours
+				-- enable_cursor_planning_mode = true, -- enable cursor planning mode!
+				use_cwd_as_project_root = true,
 			},
 		},
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -20,7 +29,7 @@ return {
 			--- The below dependencies are optional,
 			"echasnovski/mini.pick", -- for file_selector provider mini.pick
 			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+			--"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
 			"ibhagwan/fzf-lua", -- for file_selector provider fzf
 			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
 			"zbirenbaum/copilot.lua", -- for providers='copilot'
@@ -37,7 +46,7 @@ return {
 							insert_mode = true,
 						},
 						-- required for Windows users
-						use_absolute_path = true,
+						use_absolute_path = false,
 					},
 				},
 			},

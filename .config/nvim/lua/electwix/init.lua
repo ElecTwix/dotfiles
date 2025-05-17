@@ -188,3 +188,21 @@ vim.opt.signcolumn = "number"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.laststatus = 3
+
+vim.api.nvim_create_autocmd("BufAdd", {
+	pattern = "*",
+	callback = function()
+		local bufpath = vim.fn.expand("<afile>")
+		local bufnr = vim.fn.bufnr()
+		-- Check if buffer has a name, the file doesn't exist,
+		-- the buffer is not modified, and it's a normal file buffer (not scratch, terminal, etc.)
+		if
+			bufpath ~= ""
+			and vim.fn.filereadable(bufpath) == 0
+			and vim.api.nvim_get_option_value("modified", { scope = "local", buf = bufnr }) == false
+			and vim.api.nvim_get_option_value("buftype", { scope = "local", buf = bufnr }) == ""
+		then
+			vim.cmd("silent! bd " .. bufnr)
+		end
+	end,
+})
