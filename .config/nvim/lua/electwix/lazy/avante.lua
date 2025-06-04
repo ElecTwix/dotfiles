@@ -5,17 +5,23 @@ return {
 			-- add any opts here
 			-- for example
 			provider = "gemini",
-			gemini = {
-				endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-				model = "gemini-2.5-pro-preview-05-06",
-				timeout = 30000,
-				temperature = 0,
-				max_tokens = 8192,
-			},
-			behaviour = {
-				--- ... existing behaviours
-				-- enable_cursor_planning_mode = true, -- enable cursor planning mode!
-				use_cwd_as_project_root = true,
+			providers = {
+				gemini = {
+					endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+					model = "gemini-2.5-flash-preview-05-20",
+					timeout = 30000,
+
+					extra_request_body = {
+						temperature = 0,
+						max_tokens = 8192,
+					},
+				},
+				behaviour = {
+					--- ... existing behaviours
+					-- enable_cursor_planning_mode = true, -- enable cursor planning mode!
+					use_cwd_as_project_root = true,
+					enable_token_counting = false,
+				},
 			},
 		},
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`

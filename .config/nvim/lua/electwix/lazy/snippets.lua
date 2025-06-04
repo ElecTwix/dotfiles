@@ -19,7 +19,7 @@ return {
 		"saghen/blink.cmp",
 		version = "*",
 		dependencies = {
-			-- "Kaiser-Yang/blink-cmp-avante",
+			"Kaiser-Yang/blink-cmp-avante",
 			-- ... Other dependencies
 		},
 		opts = {
@@ -45,6 +45,19 @@ return {
 			fuzzy = {
 				prebuilt_binaries = {
 					download = true,
+				},
+			},
+			sources = {
+				-- Add 'avante' to the list
+				default = { "avante", "lsp", "path", "buffer" },
+				providers = {
+					avante = {
+						module = "blink-cmp-avante",
+						name = "Avante",
+						opts = {
+							-- options for blink-cmp-avante
+						},
+					},
 				},
 			},
 		},
