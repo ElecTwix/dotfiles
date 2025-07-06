@@ -6,6 +6,7 @@ alias theme="kitty +kitten themes --reload-in=all" # then add theme name
 alias icat="kitty +kitten icat" # then add image name
 alias ssh="kitty +kitten ssh"
 alias lint="golangci-lint run"
+#alias z="zoxide" # then add theme name
 
 
 export ANDROID_HOME='/home/electwix/Android/Sdk'
@@ -61,3 +62,5 @@ zinit light MichaelAquilina/zsh-auto-notify
 
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
+
+eval "$(zoxide init zsh)"
