@@ -16,3 +16,5 @@ if [ -f '/home/electwix/repos/google-cloud-sdk/path.bash.inc' ]; then . '/home/e
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/electwix/repos/google-cloud-sdk/completion.bash.inc' ]; then . '/home/electwix/repos/google-cloud-sdk/completion.bash.inc'; fi
 . "$HOME/.cargo/env"
+
+. "$HOME/.limbo/env"
