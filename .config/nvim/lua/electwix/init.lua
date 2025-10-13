@@ -1,6 +1,19 @@
 vim.g.mapleader = " " -- Set leader key before Lazy
 vim.opt.termguicolors = true
 
+local config_root = vim.fn.stdpath("config")
+vim.env.XDG_STATE_HOME = config_root .. "/.local/state"
+local fallback_shada_dir = vim.env.XDG_STATE_HOME .. "/nvim/shada"
+
+local function ensure_dir(dir)
+	if vim.fn.isdirectory(dir) == 0 then
+		vim.fn.mkdir(dir, "p")
+	end
+end
+
+ensure_dir(fallback_shada_dir)
+vim.opt.shadafile = fallback_shada_dir .. "/main.shada"
+
 function map(mode, lhs, rhs, opts)
 	local keys = require("lazy.core.handler").handlers.keys
 	---@cast keys LazyKeysHandler
