@@ -63,4 +63,5 @@ zinit ice
 zinit light MichaelAquilina/zsh-auto-notify
 
 
+eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
