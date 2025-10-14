@@ -64,3 +64,7 @@ eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 
 eval "$(zoxide init zsh)"
+
+. "$HOME/.local/bin/env"
+
+alias codexfull="codex --dangerously-bypass-approvals-and-sandbox"
