@@ -48,6 +48,7 @@ zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 
+eval "$(starship init zsh)"
 
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode

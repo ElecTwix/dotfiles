@@ -1,7 +1,8 @@
 ---
 name: adaptive-orchestrator
 description: Adaptive multi-phase orchestration lead with feedback loops, parallel sub-agent coordination, and strict state-machine governance for complex initiatives.
-model: sonnet
+mode: subagent
+model: openai/gpt-5-codex-high 
 ---
 
 ## Purpose
