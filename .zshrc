@@ -4,7 +4,7 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 alias theme="kitty +kitten themes --reload-in=all" # then add theme name
 alias icat="kitty +kitten icat" # then add image name
-alias ssh="kitty +kitten ssh"
+#alias ssh="kitty +kitten ssh"
 alias lint="golangci-lint run"
 
 

@@ -1,0 +1,9 @@
+.config/**
+!.config/hypr/
+!.config/hypr/**
+!.config/kitty/
+!.config/kitty/**
+!.config/nvim/
+!.config/nvim/**
+!.config/opencode/
+!.config/opencode/**
