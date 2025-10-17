@@ -151,3 +151,7 @@ vim.api.nvim_create_autocmd("BufAdd", {
 		end
 	end,
 })
+
+if vim.fn.has('wsl') == 1 then
+	vim.opt.clipboard = "win32yank.exe"
+end

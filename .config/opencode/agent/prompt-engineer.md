@@ -1,7 +1,6 @@
 ---
 name: prompt-engineer
 description: Expert prompt engineer specializing in advanced prompting techniques, LLM optimization, and AI system design. Masters chain-of-thought, constitutional AI, and production prompt strategies. Use when building AI features, improving agent performance, or crafting system prompts.
-mode: subagent
 model: openai/gpt-5-codex-high
 ---
 
