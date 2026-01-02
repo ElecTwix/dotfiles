@@ -45,18 +45,29 @@ source /usr/share/zinit/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-
+# zinit ice for starship removed (it was incomplete/broken)
 
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 
-zinit ice
+# --- New Plugins ---
+
+# 1. Additional Completions (Loads early)
+zinit light zsh-users/zsh-completions
+
+# 2. FZF (Fuzzy Finder)
+zinit ice from"gh-r" as"program"
+zinit light junegunn/fzf
+
+# 3. Syntax Highlighting (MUST be last)
+zinit ice wait"0a" lucid
+zinit light zdharma-continuum/fast-syntax-highlighting
+
+# --- Existing Turbo Plugins ---
+zinit ice wait"0a" lucid
 zinit light zsh-users/zsh-autosuggestions
 
-zinit ice
+zinit ice wait"0a" lucid
 zinit light MichaelAquilina/zsh-auto-notify
 
 
@@ -68,3 +79,10 @@ eval "$(zoxide init zsh)"
 . "$HOME/.local/bin/env"
 
 alias codexfull="codex --dangerously-bypass-approvals-and-sandbox"
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH=~/.npm-global/bin:$PATH
+
+# Initialize FZF keybindings (Ctrl+R history, Ctrl+T files)
+# Done last to ensure it overrides other bindings
+type fzf >/dev/null && eval "$(fzf --zsh)"

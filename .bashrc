@@ -19,3 +19,5 @@ if [ -f '/home/electwix/repos/google-cloud-sdk/completion.bash.inc' ]; then . '/
 . "$HOME/.cargo/env"
 
 . "$HOME/.local/bin/env"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
