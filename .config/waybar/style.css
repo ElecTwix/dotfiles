@@ -24,17 +24,15 @@ tooltip label{
 
 #workspaces button {
     padding: 5px;
-    color: #313244;
+    color: #cdd6f4;
     margin-right: 5px;
+    transition: all 0.2s ease;
 }
 
-#workspaces button.active {
-    color: #a6adc8;
-}
-
+#workspaces button.active,
 #workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
+    color: #11111b;
+    background: #ffffff;
     border-radius: 10px;
 }
 

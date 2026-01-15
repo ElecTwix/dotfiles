@@ -45,7 +45,10 @@
         "disable-scroll": false,
         "on-click": "activate",
         "format": "{name}",
-        "sort-by-number": true
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "*": 5
+        }
     },
     "wlr/taskbar": {
         "format": "{icon}",
