@@ -1,1 +1,0 @@
-opt.grepprg = "rg --vimgrep"

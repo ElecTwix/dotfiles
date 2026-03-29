@@ -1,218 +1,146 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
+[](blue)\
 $os\
-[\uE0B0](fg:bar_one bg:bar_two)\
-$custom$directory\
-[\uE0B0](fg:bar_two bg:bar_three)\
+$username\
+[](bg:lavender fg:blue)\
+$directory\
+[](bg:yellow fg:lavender)\
 $git_branch\
 $git_status\
-[\uE0B0](fg:bar_three bg:bar_four)\
-$c\
-$dart\
-$elixir\
-$elm\
-$golang\
-$haskell\
-$java\
-$julia\
-$lua\
+[](bg:green fg:yellow)\
 $nodejs\
-$nim\
-$php\
-$python\
-$rlang\
-$ruby\
 $rust\
-$scala\
-[\uE0B0](fg:bar_four) \
-"""
-
-right_format = """
-[\uE0B2](fg:bar_three)\
+$java\
+$kotlin\
+$python\
+[](bg:sapphire fg:green)\
+$cmd_duration\
+[](bg:surface0 fg:sapphire)\
 $time\
-"""
+[ ](fg:surface0) """
 
-palette = 'theme'
-
-# Defines the colour palette for the theme
-[palettes.theme]
-bar_one = '#C0CAF5'
-bar_two = '#6992D7'
-bar_three = '#394260'
-bar_four = '#212736'
-bar_five = '#1D2230'
-text_one = '#090C0C'
-text_two = '#EEEEEE'
-text_three = '#A3AED2'
+add_newline = true
+palette = 'catppuccin_mocha'
 
 [os]
-style = 'bg:bar_one fg:text_one'
-format = '[ $symbol ]($style)'
 disabled = false
+style = "bg:blue fg:crust"
 
 [os.symbols]
-Alpine = ''
-Amazon = ''
-Android = ''
-Arch = ''
-CentOS = ''
-Debian = ''
-DragonFly = ''
-Emscripten = ''
-EndeavourOS = ''
-Fedora = ''
-FreeBSD = ''
-Garuda = '﯑'
-Gentoo = ''
-HardenedBSD = 'ﲊ'
-Illumos = ''
-Linux = "\uE712"
-Macos = "\uE711"
-Manjaro = ''
-Mariner = ''
-MidnightBSD = ''
-Mint = ''
-NetBSD = ''
-NixOS = ''
-OpenBSD = ''
-openSUSE = ''
-OracleLinux = ''
-Pop = ''
-Raspbian = ''
-Redhat = "\uE7BB"
-RedHatEnterprise = "\uE7BB"
-Redox = ''
-Solus = 'ﴱ'
-SUSE = ''
-Ubuntu = ''
-Unknown = ''
-Windows = ''
+Macos = "󰀵"
+Linux = "󰌽"
+Arch = "󰣇"
+Ubuntu = "󰕈"
+Debian = "󰣚"
+Fedora = "󰣛"
+Windows = ""
+Android = ""
+
+[username]
+show_always = true
+style_user = "bg:blue fg:crust"
+style_root = "bg:blue fg:red bold"
+format = '[ $user ]($style)'
 
 [directory]
-truncation_length = 0
-truncation_symbol = '.../'
-truncate_to_repo = false
-fish_style_pwd_dir_length = 1
-style = 'bold fg:text_two bg:bar_two'
-format = '[ $path ]($style)'
-
-[custom.home]
-when = ''' test '$HOME' = '$PWD' '''
-style = 'bold fg:text_two bg:bar_two'
-symbol = ' '
-
-[custom.folder]
-when = ''' test '$HOME' != '$PWD' '''
-style = 'bold fg:text_two bg:bar_two'
-symbol = ' '
+style = "bg:lavender fg:crust"
+format = "[ 󰉋 $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
 
 [directory.substitutions]
-'Documents' = ' '
-'Downloads' = ' '
-'Music' = ' '
-'Pictures' = ' '
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Developer" = "󰲋 "
+"dev" = "󰲋 "
+"Music" = "󰝚 "
+"Pictures" = " "
 
 [git_branch]
-symbol = ' '
-style = 'fg:text_three bg:bar_three'
-format = '[ $symbol $branch ]($style)'
+symbol = " "
+style = "bg:yellow fg:crust"
+format = '[ $symbol$branch ]($style)'
 
 [git_status]
-style = 'fg:text_three bg:bar_three'
+style = "bg:yellow fg:crust"
 format = '[$all_status$ahead_behind ]($style)'
 
-[c]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[dart]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[elixir]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[golang]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[lua]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
 [nodejs]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[php]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[python]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[rlang]
-symbol = 'ﳒ '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
-
-[ruby]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
+symbol = " "
+style = "bg:green fg:crust"
+format = '[ $symbol$version ]($style)'
 
 [rust]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
+symbol = " "
+style = "bg:green fg:crust"
+format = '[ $symbol$version ]($style)'
 
-[scala]
-symbol = ' '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol ($version) ]($style)'
+[java]
+symbol = " "
+style = "bg:green fg:crust"
+format = '[ $symbol$version ]($style)'
+
+[kotlin]
+symbol = " "
+style = "bg:green fg:crust"
+format = '[ $symbol$version ]($style)'
+
+[python]
+symbol = " "
+style = "bg:green fg:crust"
+format = '[ $symbol$version(\($virtualenv\)) ]($style)'
+
+[cmd_duration]
+min_time = 500
+style = "bg:sapphire fg:crust"
+format = '[ 󱎫 $duration ]($style)'
 
 [time]
 disabled = false
-time_format = '%R' # Hour:Minute Format
-style = 'fg:text_three bg:bar_three'
-format = '[   $time ]($style)'
+time_format = "%R"
+style = "bg:surface0 fg:text"
+format = '[  $time ]($style)'
 
-[cmd_duration]
-show_notifications = true
-min_time = 2_000
-min_time_to_notify = 45_000
-format = 'underwent [$duration](bold yellow)'
+[line_break]
+disabled = true
+
+[character]
+success_symbol = '[❯](bold green)'
+error_symbol = '[❯](bold red)'
+vimcmd_symbol = '[❮](bold green)'
+vimcmd_replace_one_symbol = '[❮](bold lavender)'
+vimcmd_replace_symbol = '[❮](bold lavender)'
+vimcmd_visual_symbol = '[❮](bold yellow)'
+
+[gcloud]
+disabled = true
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
